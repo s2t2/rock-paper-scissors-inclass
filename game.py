@@ -36,6 +36,13 @@ print("COMPUTER CHOICE:", computer_choice)
 #
 
 
+
+
+
+
+
+
+
 #if user_choice == computer_choice:
 #    print("TIE")
 #elif user_choice == "rock" and computer_choice == "paper":
@@ -52,26 +59,75 @@ print("COMPUTER CHOICE:", computer_choice)
 #elif user_choice == "scissors" and computer_choice == "paper":
 #    print("SCISSORS")
 
-if user_choice == computer_choice:
-    winning_choice = None # the outcome is a tie
-else:
-    choices = [user_choice, computer_choice]
-    choices.sort() # FYI: this is mutating
 
-    if choices == ["paper", "rock"]:
-        winning_choice = "paper"
-    elif choices == ["paper", "scissors"]:
-        winning_choice = "scissors"
-    elif choices == ["rock", "scissors"]:
-        winning_choice = "rock"
+
+
+
+
+
+
+
+
+
+#if user_choice == computer_choice:
+#    winning_choice = None # the outcome is a tie
+#else:
+#    choices = [user_choice, computer_choice]
+#    choices.sort() # FYI: this is mutating
+#
+#    if choices == ["paper", "rock"]:
+#        winning_choice = "paper"
+#    elif choices == ["paper", "scissors"]:
+#        winning_choice = "scissors"
+#    elif choices == ["rock", "scissors"]:
+#        winning_choice = "rock"
+
+
+
+
+
+
+
+
+# first attribute represents the user, second represents the computer
+winners = {
+    "rock":{
+        "rock": None,
+        "paper": "paper",
+        "scissors": "rock",
+    },
+    "paper":{
+        "rock": "paper",
+        "paper": None,
+        "scissors": "scissors",
+    },
+    "scissors":{
+        "rock": "rock",
+        "paper": "scissors",
+        "scissors": None,
+    },
+}
+
+
+winning_choice = winners[user_choice][computer_choice]
+
 
 if winning_choice:
     if winning_choice == user_choice:
         print("YOU WON")
     elif winning_choice == computer_choice:
         print("YOU LOST")
-    else:
-        print("TIE")
+else:
+    print("TIE")
+
+
+
+
+
+
+
+
+
 
 print("Thanks for playing. Please play again!")
 
