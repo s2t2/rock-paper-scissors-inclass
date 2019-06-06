@@ -35,19 +35,44 @@ print("COMPUTER CHOICE:", computer_choice)
 # same selections is a tie
 #
 
+
+#if user_choice == computer_choice:
+#    print("TIE")
+#elif user_choice == "rock" and computer_choice == "paper":
+#    print("WINNER IS PAPER")
+#    print("COMPUTER WINS")
+#elif user_choice == "rock" and computer_choice == "scissors":
+#    print("ROCK")
+#elif user_choice == "paper" and computer_choice == "rock":
+#    print("PAPER")
+#elif user_choice == "paper" and computer_choice == "scissors":
+#    print("SCISSORS")
+#elif user_choice == "scissors" and computer_choice == "rock":
+#    print("ROCK")
+#elif user_choice == "scissors" and computer_choice == "paper":
+#    print("SCISSORS")
+
 if user_choice == computer_choice:
-    print("TIE")
-elif user_choice == "rock" and computer_choice == "paper":
-    print("PAPER")
-elif user_choice == "rock" and computer_choice == "scissors":
-    print("ROCK")
-elif user_choice == "paper" and computer_choice == "rock":
-    print("PAPER")
-elif user_choice == "paper" and computer_choice == "scissors":
-    print("SCISSORS")
-elif user_choice == "scissors" and computer_choice == "rock":
-    print("ROCK")
-elif user_choice == "scissors" and computer_choice == "paper":
-    print("SCISSORS")
+    winning_choice = None # the outcome is a tie
+else:
+    choices = [user_choice, computer_choice]
+    choices.sort() # FYI: this is mutating
+
+    if choices == ["paper", "rock"]:
+        winning_choice = "paper"
+    elif choices == ["paper", "scissors"]:
+        winning_choice = "scissors"
+    elif choices == ["rock", "scissors"]:
+        winning_choice = "rock"
+
+if winning_choice:
+    if winning_choice == user_choice:
+        print("YOU WON")
+    elif winning_choice == computer_choice:
+        print("YOU LOST")
+    else:
+        print("TIE")
+
+print("Thanks for playing. Please play again!")
 
 # DISPLAY FINAL OUTPUTS / OUTCOMES
